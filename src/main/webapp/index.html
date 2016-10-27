@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="MyApp">
+    <head>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5//angular.js"></script>
+        <script src="script/app.js" type="text/javascript"></script>
+        <style>
+            .dark{ background: lightgray;}
+        </style>
+    </head>
+    <body>
+        <div ng-controller="MyController as ctrl">
+
+            <div class="container">
+                <h1>ex-1a - age filter</h1>
+                <table class="table">
+                    <thead>
+                    <th>name</th><th>gender</th><th>age</th>
+                    </thead>
+                    <tr ng-repeat="p  in ctrl.persons| ageFilter">
+                        <td>{{p.name}}</td><td>{{p.gender}}</td><td>{{p.age}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <br>
+
+            <div class="container">
+                <h1>ex-1b - Chess filter</h1>
+                <table style="border-collapse: collapse; " ng-controller="ChessController">
+                    <tr>
+                        <td style="border: 1px solid black;height:30px;width: 30px;font-size: 28px;" ng-class="{'dark':$even}" ng-repeat="sq in board track by $index">{{sq| Chess}}</td>
+                    </tr>
+                </table>
+            </div>
+
+            <br>
+
+            <div class="container" ng-controller="DirectiveController">
+                <h1>ex-2a - Custom directive</h1>
+                <div class="container" format-company></div>
+            </div>
+
+            <br>
+
+            <div class="container">
+                <h1>ex-2b - picture gallery</h1>
+                <div gallery-directive="" id="gallery" images='pics/android.png, pics/chrome.jpg, pics/firefox.png, pics/homer.png'></div>
+            </div>
+
+            <br>
+
+            <div class="container" ng-controller="rondomController">
+                <h1>ex-3 - random</h1>
+                <span>{{randomString(7)}}</span>
+                <p>{{randomNumber(7) | number}}</p> 
+            </div>
+
+            <br>
+
+            <div class="container" ng-controller="countryController">
+                <h1>ex-4 - country data!</h1>
+                <div class="pre-scroll">
+                    <ul>
+                        <li ng-repeat="country in allCountries">{{country.name}}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="container" ng-controller="">
+                <h1>ex-5 - </h1>
+
+            </div>
+
+
+    </body>
+</html>
